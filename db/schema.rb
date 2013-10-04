@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130920182549) do
+ActiveRecord::Schema.define(version: 20131004203237) do
+
+  create_table "ads", force: true do |t|
+    t.integer "advertiser_id"
+    t.integer "ad_type",       limit: 2
+    t.integer "price"
+    t.string  "address"
+    t.string  "city"
+    t.string  "bull1"
+    t.string  "bull2"
+    t.string  "bull3"
+    t.string  "bull4"
+    t.string  "mls"
+    t.string  "agent"
+    t.string  "agent_phone"
+    t.string  "agent_email"
+    t.string  "sms_phone"
+    t.string  "sms_code"
+    t.date    "when_run"
+    t.boolean "approved",                default: false
+  end
 
   create_table "companies", force: true do |t|
     t.string "name"
@@ -30,31 +50,14 @@ ActiveRecord::Schema.define(version: 20130920182549) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], name: "index_rails_admin_histories", using: :btree
 
-  create_table "roles", force: true do |t|
-    t.string   "name"
-    t.integer  "resource_id"
-    t.string   "resource_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
-  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
-
   create_table "users", force: true do |t|
     t.string  "email",              default: "", null: false
     t.string  "encrypted_password", default: "", null: false
     t.integer "company_id"
+    t.string  "type"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-
-  create_table "users_roles", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
 end

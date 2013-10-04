@@ -1,0 +1,3 @@
+= link_to 'Back to list', ads_path, :class => 'button small'
+
+= render resource.wednesday? ? 'ads/show/wednesday' : 'ads/show/sunday', :ad => resource

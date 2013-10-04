@@ -1,0 +1,18 @@
+%h3 Approve and Schedule your ad
+
+%p
+  Do you approve this ad?
+  %br
+  %label
+    Yes
+    = f.radio_button :approved, true
+  %label
+    No
+    = f.radio_button :approved, false
+.row
+  .large-10.left
+    Which date would you like this ad run?
+    = f.hidden_field :when_run, :class => 'when_run'
+    .datepicker
+  .large-2.right
+    = f.submit 'Submit', :class => 'button'

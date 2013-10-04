@@ -1,1 +1,15 @@
-hello
+.large-4
+.large-4
+  = image_tag 'logo.png'
+
+  = form_for(:advertiser, :url => session_path(:advertiser)) do |f|
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, :autofocus => true
+    %div
+      = f.label :password
+      %br/
+      = f.password_field :password
+    %div= f.submit "Sign in"
+.large-4

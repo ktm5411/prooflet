@@ -12,6 +12,7 @@ gem 'rails_admin'
 gem 'devise', github: 'plataformatec/devise' # required by rails_admin
 gem 'rolify'
 gem 'simple_form'
+gem 'inherited_resources'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

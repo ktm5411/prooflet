@@ -1,15 +1,508 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require foundation_and_overrides
- *= require_self
- *= require_tree .
- */
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require foundation_and_overrides
+*= require jquery.ui.datepicker
+*= require_self
+*= require_tree .
+*/
 
+.wizard-steps {
+  margin: 20px 10px 0px 10px;
+  padding: 0px;
+  position: relative;
+  clear: both;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  div {
+    position: relative;
+  }
+  span {
+    display: block;
+    float: left;
+    font-size: 10px;
+    text-align: center;
+    width: 15px;
+    margin: 2px 5px 0px 0px;
+    line-height: 15px;
+    color: #ccc;
+    background: #FFF;
+    border: 2px solid #CCC;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  a {
+    position: relative;
+    display: block;
+    width: auto;
+    height: 24px;
+    margin-right: 18px;
+    padding: 0px 10px 0px 3px;
+    float: left;
+    font-size: 11px;
+    line-height: 24px;
+    color: #666;
+    background: #F0EEE3;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    &:before {
+      width: 0px;
+      height: 0px;
+      border-top: 12px solid #F0EEE3;
+      border-bottom: 12px solid #F0EEE3;
+      border-left: 12px solid transparent;
+      position: absolute;
+      content: "";
+      top: 0px;
+      left: -12px;
+    }
+    &:after {
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 12px solid #F0EEE3;
+      position: absolute;
+      content: "";
+      top: 0px;
+      right: -12px;
+    }
+  }
+  .completed-step {
+    a {
+      color: #163038;
+      background: #A3C1C9;
+      &:before {
+        border-top: 12px solid #A3C1C9;
+        border-bottom: 12px solid #A3C1C9;
+      }
+      &:after {
+        border-left: 12px solid #A3C1C9;
+      }
+    }
+    span {
+      border: 2px solid #163038;
+      color: #163038;
+      text-shadow: none;
+    }
+  }
+  .active-step {
+    a {
+      color: #A3C1C9;
+      background: #163038;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+      &:before {
+        border-top: 12px solid #163038;
+        border-bottom: 12px solid #163038;
+      }
+      &:after {
+        border-left: 12px solid #163038;
+      }
+    }
+    span {
+      color: #163038;
+      -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+      -moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+      box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+      text-shadow: none;
+      border: 2px solid #A3C1C9;
+    }
+  }
+  .completed-step:hover a, .active-step:hover a {
+    color: #fff;
+    background: #8F061E;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+  .completed-step:hover span, .active-step:hover span {
+    color: #8F061E;
+  }
+  .completed-step:hover a:before, .active-step:hover a:before {
+    border-top: 12px solid #8F061E;
+    border-bottom: 12px solid #8F061E;
+  }
+  .completed-step:hover a:after, .active-step:hover a:after {
+    border-left: 12px solid #8F061E;
+  }
+}
+
+.wrapper {
+  position:relative;
+  margin:auto;
+  width:360px;
+  height:220px;
+  border-radius: 35px 0px 35px 0px;
+  -moz-border-radius: 35px 0px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  border: 1px solid #CCCCCC;
+  background-color:#fff;
+  -webkit-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+}
+
+.listing-img {
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:200px;
+  height:150px;
+  border-radius: 35px 0px 35px 0px;
+  -moz-border-radius: 35px 0px 35px 0px;
+  -webkit-border-radius: 35px 0px 35px 0px;
+  background:#ccc;
+}
+
+
+form {
+  border:none;
+}
+
+.nav_left, .left {
+  float: left;
+}
+
+.nav_right, .right {
+  float: right;
+}
+
+.step3 {
+  label {
+    display: inline;
+  }
+}
+
+#sunday, .sunday {
+  .wrapper{
+    position:relative;
+    margin-left:auto;
+    margin-right:auto;
+    height:452px;
+    width:452px;
+    background-image:url(http://missouliantech.com/lambros/img/bg.jpg);
+    background-repeat:no-repeat;
+  }
+  /* field styles */
+  form {
+    border:none;
+  }
+  
+  input {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0) inset;
+  }
+  #address{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:24px;
+    margin-top:35px;
+    margin-left:30px;
+    text-align:center;
+    width:200px;
+    background:none;
+    border:none;
+    
+  }
+  #city{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:24px;
+    margin-top:2px;
+    margin-left:30px;
+    text-align:center;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  #price{
+    font-family:"Times New Roman", Times, serif;
+    font-size:24px;
+    margin-top:2px;
+    margin-left:30px;
+    text-align:center;
+    font-weight:bold;
+    font-style:italic;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  .bullets{margin-left:30px;}
+  .bull1{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:3px;
+  }
+  #bull-1{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:3px;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  .bull2{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:1px;
+  }
+  #bull-2{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:1px;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  .bull3{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:1px;
+  }
+  #bull-3{
+    font-family:Arial, Helvetica, sans-serif;
+    margin-top:1px;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  #mls{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    margin-top:1px;
+    text-align:center;
+    width:100px;
+    background:none;
+    border:none;
+  }
+  .mlsnum{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:12px;
+    margin-top:1px;
+    margin-left:40px;
+    text-align:center;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  #name{
+    font-family:"Times New Roman", Times, serif;
+    font-size:24px;
+    margin-top:0;
+    margin-left:50px;
+    text-align:center;
+    font-weight:bold;
+    width:350px;
+    background:none;
+    border:none;
+    
+  }
+  #phone{
+    font-family:"Times New Roman", Times, serif;
+    font-size:24px;
+    margin-top:5px;
+    margin-left:130px;
+    text-align:center;
+    width:200px;
+    background:none;
+    border:none;
+  }
+  #email{
+    font-family:"Times New Roman", Times, serif;
+    font-size:24px;
+    margin-top:5px;
+    margin-left:50px;
+    text-align:center;
+    width:350px;
+    background:none;
+    border:none;
+  }
+  #submit{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#FFF;
+    background-color:#900;
+    margin-top:130px;
+    margin-left:70px;
+    text-align:center;
+    width:300px;
+    height:40px;
+    border:none;
+    cursor:pointer;
+    cursor:han
+  }
+  
+  #sales-reps-wrap {
+    width: 452px;
+    position: relative;
+    margin: 30px auto;
+  }
+  
+  #rep-photo {
+    position: absolute;
+    right: 24px;
+    top: 30px;
+  }
+  .instructions{
+    margin-left:auto;
+    margin-right:auto;
+    position: relative;
+    width:500px;
+    font-family:Arial, Helvetica, sans-serif;
+  }
+}
+
+#wednesday, .wednesday {
+  .wrapper {
+		position:relative;
+		margin:auto;
+		width:360px;
+		height:220px;
+		border-radius: 35px 0px 35px 0px;
+		-moz-border-radius: 35px 0px 35px 0px;
+		-webkit-border-radius: 35px 0px 35px 0px;
+		border: 1px solid #CCCCCC;
+		background-color:#fff;
+		-webkit-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+		box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+	}
+
+	.listing-img {
+		position:absolute;
+		top:10px;
+		left:10px;
+		width:200px;
+		height:150px;
+		border-radius: 35px 0px 35px 0px;
+		-moz-border-radius: 35px 0px 35px 0px;
+		-webkit-border-radius: 35px 0px 35px 0px;
+		background:#ccc;
+	}
+
+
+	form {
+		border:none;
+	}
+
+
+	#name1 {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:24px;
+		top:160px;
+		left:10px;
+		width:200px;
+		background:none;
+		border:none;
+		color:#d70a5b;
+	}
+
+	#phone {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:22px;
+		top:185px;
+		left:10px;
+		width:200px;
+		background:none;
+		border:none;
+	}
+	#price {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:22px;
+		top:10px;
+		left:220px;
+		width:135px;
+		background:none;
+		border:none;
+		color:#d70a5b;
+	}
+	#address {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:18px;
+		top:35px;
+		left:220px;
+		width:135px;
+		background:none;
+		border:none;
+	}
+	#city {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:18px;
+		top:55px;
+		left:220px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull1 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:70px;
+		left:220px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull2 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:85px;
+		left:220px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull3 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:100px;
+		left:220px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull4 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:115px;
+		left:220px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	#bull-1, #bull-2, #bull-3, #bull-4, #sms {
+		background:none;
+		border:none;
+	}
+	.sms-info {
+		position:absolute;
+		left:220px;
+		top:165px;
+		color:#006bae;
+		font-size:16px;
+		font-family:"Times New Roman", Times, serif;
+	}
+	.sms-enter {
+		position:absolute;
+		left:220px;
+		top:180px;
+		color:#006bae;
+		font-size:16px;
+		font-family:"Times New Roman", Times, serif;
+	}
+	#sms {
+		position:absolute;
+		left:40px;
+		top:-3px;
+		color:#006bae;
+		width:100px;
+		font-size:16px;
+		font-family:"Times New Roman", Times, serif;
+	}
+}

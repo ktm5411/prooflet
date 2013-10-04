@@ -1,0 +1,15 @@
+= link_to '+ New Ad', new_ad_path, :class => 'button'
+
+%h2 Upcoming Ads
+%table.responsive
+  %thead
+    %tr
+      %td Address
+      %td Run Date
+      %td
+    - for ad in collection do
+      %tr
+        %td= ad.address
+        %td= ad.when_run.to_s :long
+        %td= link_to 'View Ad', ad
+
