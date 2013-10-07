@@ -8,8 +8,6 @@ class AdsController < ApplicationController
   before_action :auditor_authenticate!,    :only => :destroy
 
   def index
-    p current_advertiser
-    p current_auditor
     @ads = Ad.all if auditor_signed_in?
   end
 
@@ -20,7 +18,7 @@ class AdsController < ApplicationController
   protected
 
   def begin_of_association_chain
-    current_advertiser
+    current_user
   end
 
   def permitted_params

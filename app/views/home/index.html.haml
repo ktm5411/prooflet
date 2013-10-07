@@ -2,7 +2,7 @@
 .large-4
   = image_tag 'logo.png'
 
-  = form_for(:advertiser, :url => session_path(:advertiser)) do |f|
+  = form_for(:user, :url => user_session_path) do |f|
     %div
       = f.label :email
       %br/

@@ -1,4 +1,7 @@
-= link_to '+ New Ad', new_ad_path, :class => 'button'
+- if auditor_signed_in?
+  = link_to '+ New User', new_advertiser_path, :class => 'button'
+- else
+  = link_to '+ New Ad', new_ad_path, :class => 'button'
 
 %h2 Upcoming Ads
 %table.responsive
@@ -6,10 +9,11 @@
     %tr
       %td Address
       %td Run Date
-      %td
+      %td(colspan=2)
     - for ad in collection do
       %tr
         %td= ad.address
         %td= ad.when_run.to_s :long
+        %td= link_to 'Reject', ad, :method => :delete, :data => {:confirm => 'Are you sure?'} if auditor_signed_in?
         %td= link_to 'View Ad', ad
 
