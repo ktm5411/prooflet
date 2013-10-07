@@ -196,6 +196,9 @@ form {
   
   input {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0) inset;
+    padding: 0;
+    margin: 0;
+    height: auto;
   }
   #address{
     font-family: Arial, Helvetica, sans-serif;
@@ -377,12 +380,17 @@ form {
 		background:#ccc;
 	}
 
-
 	form {
 		border:none;
 	}
 
-
+  input {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0) inset;
+    padding: 0;
+    margin: 0;
+    height: auto;
+  }
+  
 	#name1 {
 		position:absolute;
 		font-family:"Times New Roman", Times, serif;
