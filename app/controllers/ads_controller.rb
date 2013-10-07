@@ -22,6 +22,6 @@ class AdsController < ApplicationController
   end
 
   def permitted_params
-    params.permit(resource_instance_name => [:agent, :ad_type, :approved, :agent_phone, :price, :address, :city, :bull1, :bull2, :bull3, :bull4, :sms_code, :when_run])
+    params.permit(resource_instance_name => [:agent, :ad_type, :approved, :agent_phone, :price, :address, :city, :bull1, :bull2, :bull3, :bull4, :sms_code, :when_run, :mls, :agent_email])
   end
 end

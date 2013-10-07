@@ -2,6 +2,7 @@
   .wrapper
     %img#rep-photo{src: ""}
 
+    %br
     %label
       #address= ad.address
     %label
@@ -13,27 +14,19 @@
 
     .bullets
       %label.bull1
-        %br
         #bull-1= ad.bull1
       %label.bull2
-        %br
         #bull-2= ad.bull2
       %label.bull3
-        %br
         #bull-3= ad.bull3
-        = f.text_field :bull3, :id => 'bull-3', :placeholder => 'Bullet Point 3', :maxlength => '22'
       %label.mlsnum
-        %br
         MLS#
-        #mls= ad.mls
+        %span#mls= ad.mls
     %label
       %br
       #name= ad.agent
-      = f.text_field :agent, :id => 'name', :placeholder => 'Agent'
-      %br
     %label
       #phone= ad.agent_phone
-      %br
     %label
       #email= ad.agent_email
       %br
