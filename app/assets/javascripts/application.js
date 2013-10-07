@@ -20,6 +20,15 @@
 $(function(){ 
   $(document).foundation();
 
+  var activate_step = function(step){
+    $('#steps .step').removeClass('active-step').removeClass('completed-step');
+    $($('#steps .step')[step - 1]).addClass('active-step');
+    var prev = step - 1
+    if( prev > 0 ){
+      $($('#steps .step')[prev]).addClass('completed-step');
+    }
+  }
+
   $('#template select').change(function(e){
     $('.forms').hide();
 
@@ -27,23 +36,27 @@ $(function(){
     if($this.val() != ''){
       $('#' + $this.val()).show();
       $('#template').hide();
+      activate_step(2);
     }
   }).change(); // init
 
   $('.step2 .nav_left').click(function(){
     $(this).parents('.forms').hide();
     $('#template').show();
+    activate_step(1);
   });
 
   $('.step2 .nav_right').click(function(){
     var f = $(this).parents('.forms');
     f.find('.step2').hide();
     f.find('.step3').show();
+    activate_step(3);
   });
 
   $('.step3 .nav_left').click(function(){
     var f = $(this).parents('.forms');
     f.find('.step2').show();
+    activate_step(2);
     f.find('.step3').hide();
   });
 

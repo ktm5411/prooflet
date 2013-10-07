@@ -39,7 +39,7 @@
     -moz-border-radius: 10px;
     border-radius: 10px;
   }
-  a {
+  .step {
     position: relative;
     display: block;
     width: auto;
@@ -77,7 +77,7 @@
     }
   }
   .completed-step {
-    a {
+    .step {
       color: #163038;
       background: #A3C1C9;
       &:before {
@@ -95,7 +95,7 @@
     }
   }
   .active-step {
-    a {
+    .step {
       color: #A3C1C9;
       background: #163038;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
@@ -116,7 +116,7 @@
       border: 2px solid #A3C1C9;
     }
   }
-  .completed-step:hover a, .active-step:hover a {
+  .completed-step:hover .step, .active-step:hover a {
     color: #fff;
     background: #8F061E;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
