@@ -10,7 +10,7 @@
     #template
       Which ad would you like to create?
       = form_for :ad, :url => '#', :html => {:class => 'custom', :id => ''} do |f|
-        = select_tag :ad_type, options_for_select([['', ''], ['Wednesday', 'wednesday'], ['Sunday', 'sunday']], resource.named_ad_type), :class => 'medium'
+        = select_tag :ad_type, options_for_select([['', ''], ['Wednesday', 'wednesday'], ['Classified', 'classified'], ['Sunday', 'sunday']], resource.named_ad_type), :class => 'medium'
 
     #wednesday.forms.hide
       = form_for resource, :url => ads_path do |f|
@@ -19,6 +19,25 @@
           .row
             .large-5.wrapper
               = render 'wednesday', :f => f
+          .row
+            .large-12
+              .button.tiny.radius.nav_left Prev
+              .button.tiny.radius.nav_right Next
+        .step3.hide
+          .row
+            .large-12
+              = render 'step3', :f => f
+          .row
+            .large-12
+              .button.tiny.radius.nav_left Prev
+
+    #classified.forms.hide.wrapper
+      = form_for resource, :url => ads_path do |f|
+        = f.hidden_field :ad_type, :value => Ad::TYPES[:classified]
+        .step2
+          .row
+            .large-5.wrapper
+              = render 'classified', :f => f
           .row
             .large-12
               .button.tiny.radius.nav_left Prev

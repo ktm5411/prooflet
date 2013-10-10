@@ -148,6 +148,165 @@
 }
 
 #sunday, .sunday {
+  .wrapper {
+		position:relative;
+		margin:auto;
+		width:460px;
+		height:220px;
+		border-radius: 35px 0px 35px 0px;
+		-moz-border-radius: 35px 0px 35px 0px;
+		-webkit-border-radius: 35px 0px 35px 0px;
+		border: 1px solid #CCCCCC;
+		background-color:#fff;
+		-webkit-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+		box-shadow: -1px 0px 5px rgba(0, 0, 0, 0.75);
+	}
+
+	.listing-img {
+		position:absolute;
+		top:10px;
+		left:10px;
+		width:260px;
+		height:200px;
+		border-radius: 35px 0px 35px 0px;
+		-moz-border-radius: 35px 0px 35px 0px;
+		-webkit-border-radius: 35px 0px 35px 0px;
+		background:#ccc;
+	}
+
+	.agent {
+		position:absolute;
+		top:5px;
+		left:250px;
+	}
+
+	form {
+		border:none;
+	}
+
+  input {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0) inset;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    display: inline;
+  }
+
+	#name {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:24px;
+		top:10px;
+		left:340px;
+		width:115px;
+		background:none;
+		border:none;
+		color:#d70a5b;
+	}
+	#name2 {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:24px;
+		top:36px;
+		left:340px;
+		width:115px;
+		background:none;
+		border:none;
+		color:#d70a5b;
+	}
+	#phone {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:14px;
+		top:62px;
+		left:340px;
+		width:115px;
+		background:none;
+		border:none;
+		color:#006bae;
+	}
+	#price {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:22px;
+		top:85px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+		color:#d70a5b;
+	}
+	#address {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:18px;
+		top:110px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	#city {
+		position:absolute;
+		font-family:"Times New Roman", Times, serif;
+		font-size:18px;
+		top:125px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull1 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:130px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull2 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:145px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.bull3 {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:14px;
+		top:160px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+	.mlsnum {
+		position:absolute;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:12px;
+		top:195px;
+		left:280px;
+		width:165px;
+		background:none;
+		border:none;
+	}
+  #mls {
+    width: 100px;
+  }
+	#bull-1, #bull-2, #bull-3, #mls {
+		background:none;
+		border:none;
+	}
+}
+
+#classified, .classified {
   .wrapper{
     position:relative;
     margin-left:auto;

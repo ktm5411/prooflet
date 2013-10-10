@@ -1,5 +1,5 @@
 class Ad < ActiveRecord::Base
-  TYPES = {:wednesday => 1, :sunday => 2}
+  TYPES = {:wednesday => 1, :classified => 2, :sunday => 3}
 
   validates :ad_type, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 1}
@@ -12,19 +12,18 @@ class Ad < ActiveRecord::Base
     w.validates :bull4, :sms_code, :presence => true
   end
 
-  with_options :if => :sunday? do |w|
+  with_options :if => :classified? do |w|
     w.validates :mls, :agent_email, :presence => true
   end
 
-  def wednesday?
-    ad_type == TYPES[:wednesday]
-  end
-
-  def sunday?
-    ad_type == TYPES[:sunday]
+  TYPES.each do |m, v|
+    define_method "#{m}?" do
+      ad_type == TYPES[m]
+    end
   end
 
   def when_run=(obj)
+    return if obj.blank?
     write_attribute :when_run, obj.is_a?(String) ? Date.strptime(obj, '%m/%d/%Y') : obj
   end
 

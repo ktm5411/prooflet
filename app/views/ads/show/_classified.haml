@@ -1,0 +1,32 @@
+#classified
+  .wrapper
+    %img#rep-photo{src: ""}
+
+    %br
+    %label
+      #address= ad.address
+    %label
+      %br
+      #city= ad.city
+      %br
+    %label
+      #price= ad.price
+
+    .bullets
+      %label.bull1
+        #bull-1= ad.bull1
+      %label.bull2
+        #bull-2= ad.bull2
+      %label.bull3
+        #bull-3= ad.bull3
+      %label.mlsnum
+        MLS#
+        %span#mls= ad.mls
+    %label
+      %br
+      #name= ad.agent
+    %label
+      #phone= ad.agent_phone
+    %label
+      #email= ad.agent_email
+      %br
