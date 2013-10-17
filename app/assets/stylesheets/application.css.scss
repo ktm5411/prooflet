@@ -464,6 +464,12 @@
     margin: 30px auto;
   }
   
+  #rep-photo-select {
+    position: absolute;
+    right: -300px;
+    top: 50px;
+  }
+
   #rep-photo {
     position: absolute;
     right: 24px;
@@ -639,4 +645,11 @@
 		font-size:16px;
 		font-family:"Times New Roman", Times, serif;
 	}
+}
+
+#public_listing {
+  #wednesday, #classified, #sunday {
+    width: auto;
+    float: left;
+  }
 }

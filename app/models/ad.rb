@@ -6,7 +6,7 @@ class Ad < ActiveRecord::Base
   validates :address, :city, :presence => true
   validates :bull1, :bull2, :bull3, :presence => true, :length => {:maximum => 22}
   validates :agent, :agent_phone, :presence => true
-  validates :when_run, :presence => true # TODO validate date?
+  validates :when_run, :image, :presence => true # TODO validate date?
 
   with_options :if => :wednesday? do |w|
     w.validates :bull4, :sms_code, :presence => true
@@ -15,6 +15,8 @@ class Ad < ActiveRecord::Base
   with_options :if => :classified? do |w|
     w.validates :mls, :agent_email, :presence => true
   end
+
+  mount_uploader :image, AdUploader
 
   TYPES.each do |m, v|
     define_method "#{m}?" do
@@ -33,7 +35,7 @@ class Ad < ActiveRecord::Base
     elsif sunday?
       'sunday'
     else
-      nil
+      'classified'
     end
   end
 end

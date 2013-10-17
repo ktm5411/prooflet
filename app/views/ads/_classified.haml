@@ -1,4 +1,5 @@
-%img#rep-photo{src: ""}
+= f.hidden_field :image_cache
+= f.file_field :image, :id => 'rep-photo-select'
 
 %label
   = f.text_field :address, :id => 'address', :placeholder => 'Address'

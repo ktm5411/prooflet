@@ -7,6 +7,7 @@ Appname::Application.routes.draw do
     resources :ads
     resources :advertisers, :only => [:new, :create]
   end
+  get '/listing' => 'ads#listing', :as => :listing
   
   root :to => 'home#index'
 end

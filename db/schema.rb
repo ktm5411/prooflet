@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131004203237) do
+ActiveRecord::Schema.define(version: 20131011220607) do
 
   create_table "ads", force: true do |t|
     t.integer "advertiser_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20131004203237) do
     t.string  "sms_code"
     t.date    "when_run"
     t.boolean "approved",                default: false
+    t.string  "image"
   end
 
   create_table "companies", force: true do |t|
