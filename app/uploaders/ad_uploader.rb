@@ -11,21 +11,20 @@ class AdUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [260, 200]
   end
 
-#  version :classified do
-#    process :resize_to_fit => [260, 200]
-#  end
+  version :classified do
+    process :resize_to_fit => [145, 200]
+  end
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-#  storage Rails.env.production? ? :ftp : :file
-  storage :ftp
+  storage Rails.env.production? ? :aws : :file
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{name_in_subfolder}"
+    "#{Rails.env}/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{name_in_subfolder}"
   end
 
   def name_in_subfolder

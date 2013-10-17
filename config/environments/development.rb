@@ -25,4 +25,8 @@ Appname::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  ENV['S3_BUCKET_NAME'] = 'prooflet'
+  ENV['AWS_ACCESS_KEY_ID'] = 'AKIAIFVFEGIOG7OIGZQQ'
+  ENV['AWS_SECRET_ACCESS_KEY'] = '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'
 end

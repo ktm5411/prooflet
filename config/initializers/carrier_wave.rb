@@ -1,11 +1,12 @@
-require 'carrierwave/storage/ftp'
-
 CarrierWave.configure do |config|
-  config.ftp_host = 'ftp.windfallstudio.com'
-  config.ftp_port = 21
-  config.ftp_user = 'prooflet@windfallstudio.com'
-  config.ftp_passwd = 'Abcd3fg*'
-  config.ftp_folder = '/prooflet_uploads'
-  config.ftp_url = "http://windfallstudio.com#{config.ftp_folder}_#{Rails.env.to_s}"
-  config.ftp_passive = false # false by default
+  config.storage    = :aws
+  config.aws_bucket = ENV['S3_BUCKET_NAME']
+  config.aws_acl    = :public_read
+#  config.asset_host = 'http://example.com'
+  config.aws_authenticated_url_expiration = 60 * 60 * 24 * 365
+
+  config.aws_credentials = {
+    access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  }
 end
