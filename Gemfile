@@ -18,6 +18,9 @@ gem 'rolify'
 gem 'simple_form'
 gem 'inherited_resources'
 
+# exceptions catch
+gem 'party_foul'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -42,7 +45,7 @@ gem 'jquery-ui-rails'
 gem 'zurb-foundation'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+#gem 'jbuilder', '~> 1.2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
