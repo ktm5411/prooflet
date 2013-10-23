@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131011220607) do
+ActiveRecord::Schema.define(version: 20131023213822) do
 
   create_table "ads", force: true do |t|
     t.integer "advertiser_id"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 20131011220607) do
     t.string  "encrypted_password", default: "", null: false
     t.integer "company_id"
     t.string  "type"
+    t.string  "name"
+    t.string  "phone"
+    t.string  "photo"
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree

@@ -7,13 +7,32 @@
     = f.label :email
     %br/
     = f.email_field :email, :autofocus => true
+
+  %div
+    = f.label :name
+    %br/
+    = f.text_field :name
+
+  %div
+    = f.label :phone
+    %br/
+    = f.text_field :phone
+
+  %div
+    = f.label :photo
+    %br/
+    = image_tag f.object.photo.url if f.object.photo?
+    = f.file_field :photo
+
   %div
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
     = f.password_field :password, :autocomplete => "off"
+
   %div
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
+
   %div= f.submit "Update"

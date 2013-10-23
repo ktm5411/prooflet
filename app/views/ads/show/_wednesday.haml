@@ -1,7 +1,6 @@
 #wednesday
   .wrapper
-    .listing-img
-      = image_tag ad.image.wednesday.url
+    .listing-img{:style => "background-image:url(#{ad.image.wednesday.url}); background-repeat: no-repeat;"}
     %label
       #name1= ad.agent
     %label

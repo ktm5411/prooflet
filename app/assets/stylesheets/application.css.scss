@@ -175,10 +175,13 @@
 		background:#ccc;
 	}
 
-	.agent {
-		position:absolute;
-		top:5px;
-		left:250px;
+	.agent_photo {
+		position: absolute;
+		top: 5px;
+		left: 250px;
+    border-radius: 40px 40px 40px 40px;
+    height: 87px;
+    width: 87px;
 	}
 
 	form {

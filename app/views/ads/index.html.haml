@@ -10,11 +10,13 @@
     %tr
       %td Address
       %td Run Date
+      %td
       %td(colspan=2)
     - for ad in collection do
       %tr
         %td= ad.address
         %td= ad.when_run.to_s :long
+        %td= ad.humanized_type
         %td= link_to 'Reject', ad, :method => :delete, :data => {:confirm => 'Are you sure?'} if auditor_signed_in?
         %td= link_to 'View Ad', ad
 

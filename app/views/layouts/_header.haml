@@ -1,5 +1,6 @@
 .row
   .large-9.columns
   .large-3.columns
-    = link_to 'Profile', '#', :class => 'button small' if advertiser_signed_in?
+    = link_to 'Ads', ads_path, :class => 'button small'
+    = link_to 'Profile', edit_user_registration_path, :class => 'button small' if advertiser_signed_in?
     = link_to 'Logout', destroy_user_session_path, :method => :delete, :class => 'button small' if signed_in?

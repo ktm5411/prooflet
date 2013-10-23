@@ -1,4 +1,5 @@
 class AdsController < ApplicationController
+  before_action :authenticate_user!
   respond_to :html
 
   inherit_resources
@@ -8,12 +9,21 @@ class AdsController < ApplicationController
   before_action :auditor_authenticate!,    :only => :destroy
 
   def index
-    @ads = Ad.all if auditor_signed_in?
+    if advertiser_signed_in?
+      @ads = current_user.ads
+    else
+      @ads = Ad.all
+    end
+  end
+
+  def new
+    @ad = current_user.ads.build :agent => current_user.name, :agent_phone => current_user.phone, :agent_email => current_user.email
+    new!
   end
 
   # public
   def listing
-    @ads = Ad.all
+    @ads = Ad.approved.all
   end
 
   def create

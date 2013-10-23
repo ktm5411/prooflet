@@ -24,6 +24,10 @@ class Ad < ActiveRecord::Base
     end
   end
 
+  def humanized_type
+    TYPES.index(ad_type).to_s.humanize
+  end
+
   def when_run=(obj)
     return if obj.blank?
     write_attribute :when_run, obj.is_a?(String) ? Date.strptime(obj, '%m/%d/%Y') : obj
@@ -34,8 +38,10 @@ class Ad < ActiveRecord::Base
       'wednesday'
     elsif sunday?
       'sunday'
-    else
+    elsif classified?
       'classified'
+    else
+      nil
     end
   end
 end

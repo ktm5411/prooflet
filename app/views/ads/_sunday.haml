@@ -1,5 +1,5 @@
 .listing-img
-= image_tag 'agent.png', :class => 'agent'
+= image_tag current_user.photo? ? current_user.photo.url : 'agent.png', :class => 'agent_photo'
 
 %label
   = f.text_field :agent, :id => 'name', :placeholder => 'Agent'
