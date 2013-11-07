@@ -18,6 +18,10 @@ gem 'rolify'
 gem 'simple_form'
 gem 'inherited_resources'
 
+#pdf
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+
 # exceptions catch
 gem 'party_foul'
 

@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :html
+  respond_to :html, :pdf
 
   inherit_resources
   actions :index, :show, :new, :create
@@ -13,6 +13,17 @@ class AdsController < ApplicationController
       @ads = current_user.ads
     else
       @ads = Ad.all
+    end
+
+  end
+
+  def show
+    @ad = current_user.ads.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "file_name", :layout => 'application.pdf'
+      end
     end
   end
 

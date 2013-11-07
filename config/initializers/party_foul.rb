@@ -4,7 +4,7 @@ PartyFoul.configure do |config|
   config.blacklisted_exceptions = ['ActiveRecord::RecordNotFound', 'ActionController::RoutingError']
 
   # The OAuth token for the account that is opening the issues on Github
-  config.oauth_token            = '9455046eab664a8af90c19b1a9d5ce9c5a09b1c3'
+  config.oauth_token            = '32f40e9be7c0ca1952bcbd31507a8ebc73c9ddf5'
 
   # The Web URL for Github. Unless you are hosting a private
   # instance of Enterprise Github you do not need to include this

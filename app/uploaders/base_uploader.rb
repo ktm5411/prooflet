@@ -19,6 +19,10 @@ class BaseUploader < CarrierWave::Uploader::Base
     "#{subfolder}/#{model.id}"
   end
 
+  def full_cache_path
+    Rails.root.join('public', cache_dir, cache_name)
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
