@@ -18,5 +18,5 @@
         %td= ad.when_run.to_s :long
         %td= ad.humanized_type
         %td= link_to 'Reject', ad, :method => :delete, :data => {:confirm => 'Are you sure?'} if auditor_signed_in?
-        %td= link_to 'View Ad', ad
+        %td= link_to 'View Ad', ad_path(ad, :format => :pdf)
 
